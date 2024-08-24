@@ -444,12 +444,15 @@ h3{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 30%;
-    height: 280px;
+    /*width: 30%;*/
+    width: 100%; /* Full width of the container on small screens */
+    max-width: 300px; /* Limits the maximum width of each box */
+    height: 300px;
     background: var(--color-white);
     border-radius: 20px;
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
     overflow: hidden;
+    min-width: 200px; /* Ensures items don't get too small */
 }
 .certificate-box>i{
     font-size: 50px;
@@ -600,16 +603,36 @@ footer{
 }
 .middle-footer .footer-menu{
     display: flex;
+    flex-wrap: wrap; /* Allows items to wrap onto the next line if needed */
+    justify-content: center; /* Centers items horizontally */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
 }
 .footer_menu_list{
     list-style: none;
+    margin: 0; /* Remove default margin */
 }
 .footer_menu_list a{
     text-decoration: none;
     color: var(--text-color-second);
     font-weight: 500;
     margin-inline: 20px;
+    display: block; /* Ensures that links take up the full width */
 }
+
+/* Media Query for smaller screens */
+@media (max-width: 600px) {
+    .middle-footer .footer-menu {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .footer_menu_list a {
+        margin-inline: 0; /* Remove horizontal margin for better alignment */
+        margin-block: 10px; /* Add vertical spacing between items */
+    }
+}
+
 .footer-social-icons{
     display: flex;
     gap: 30px;   
